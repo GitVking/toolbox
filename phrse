@@ -1,0 +1,7 @@
+from sql_metadata import Parser
+with open('./sql.sql','r',encoding='utf-8') as f:
+    sql = f.read()
+tables  = Parser(sql).tables
+tables = [table.upper() for table in tables]
+tables = list(set(tables))
+print(tables)
